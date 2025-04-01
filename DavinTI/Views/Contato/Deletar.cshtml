@@ -1,0 +1,31 @@
+﻿@model DavinTI.Models.Contato
+
+@{
+    ViewData["Title"] = "Excluir Contato";
+}
+
+<h2 class="mb-3">@ViewData["Title"]</h2>
+
+<h4 class="text-danger">Tem certeza que deseja excluir este contato?</h4>
+
+<div class="mb-4">
+    <h5>@Model.Nome</h5>
+    <p><strong>Idade:</strong> @Model.Idade</p>
+    <p><strong>Telefones:</strong></p>
+    <ul>
+        @foreach (var tel in Model.Telefones)
+        {
+            <li>@tel.Numero</li>
+        }
+    </ul>
+</div>
+
+<form asp-action="Deletar" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Confirmar Exclusão
+    </button>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
+</form>

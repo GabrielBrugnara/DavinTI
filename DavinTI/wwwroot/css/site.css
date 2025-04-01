@@ -1,0 +1,187 @@
+/* Reset geral pra evitar espaçamentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo base do body */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #dceffc; /* fundo azul claro suave */
+    color: #003366; /* fonte padrão em azul escuro */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu lateral fixo com degradê e efeito de vidro */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.95), rgba(0, 40, 80, 0.85)); /* azul mais escuro */
+    backdrop-filter: blur(15px) brightness(1.05);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    border-right: 2px solid rgba(0, 184, 204, 0.2);
+    box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+    /* Links do menu lateral */
+    .sidebar a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        display: block;
+        transition: 0.3s ease-in-out;
+        text-align: left;
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+        .sidebar a:hover {
+            background: rgba(0, 184, 204, 0.2);
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(0, 184, 204, 0.9);
+        }
+
+/* Cabeçalho fixo na parte superior */
+.header {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    width: calc(100% - 220px);
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.95), rgba(0, 40, 80, 0.85));
+    backdrop-filter: blur(12px) brightness(1.05);
+    color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    border-bottom: 2px solid rgba(0, 184, 204, 0.2);
+}
+
+/* Área principal onde ficam os conteúdos das views */
+.content {
+    margin-left: 220px;
+    margin-top: 70px;
+    padding: 20px;
+    width: calc(100% - 220px);
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    flex-grow: 1;
+    color: #003366;
+}
+
+/* Card com visual limpo e efeito leve */
+.custom-card {
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    color: #003366;
+}
+
+    .custom-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 15px rgba(0, 184, 204, 0.3);
+    }
+
+    .custom-card .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-card .card-text {
+        flex-grow: 1;
+    }
+
+    .custom-card .btn {
+        align-self: center;
+        width: 80%;
+    }
+
+/* Estilo das tabelas */
+.minha-tabela {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    margin-top: 1rem !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px) brightness(1.05);
+    color: #222;
+}
+
+    .minha-tabela thead.table-dark {
+        background-color: #003366 !important;
+        color: #fff !important;
+    }
+
+    .minha-tabela th,
+    .minha-tabela td {
+        padding: 0.75rem 1rem !important;
+        border-bottom: 1px solid #ccc !important;
+        text-align: left !important;
+    }
+
+/* Botões com efeito vidro e hover brilhante */
+.btn {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #005b99;
+}
+
+    .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 40, 80, 0.8));
+        mix-blend-mode: overlay;
+        opacity: 0.4;
+        pointer-events: none;
+        z-index: -1;
+        filter: blur(4px);
+        border-radius: inherit;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+        .btn:hover span,
+        .btn:hover i,
+        .btn:hover .btn-text {
+            text-shadow: 0 0 40px rgba(0, 184, 204, 1) !important;
+        }

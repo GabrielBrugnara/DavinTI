@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="hero-section text-white text-center">
+    <h1 class="display-5 mb-4"><i class="bi bi-telephone-forward-fill"></i> Bem-vindo à Agenda Telefônica</h1>
+    <p class="lead">Gerencie seus contatos de forma simples, rápida e eficiente.</p>
+
+    <hr class="my-4" style="border-color: rgba(255,255,255,0.3);" />
+
+    <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
+        <a href="@Url.Action("Index", "Contato")" class="btn btn-light btn-lg">
+            <i class="bi bi-person-plus"></i> Cadastrar Contato
+        </a>
+        <a href="@Url.Action("Index", "Telefone")" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-search"></i> Pesquisar Telefones
+        </a>
+    </div>
+</div>

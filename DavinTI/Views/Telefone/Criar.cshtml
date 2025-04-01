@@ -1,0 +1,37 @@
+﻿@model DavinTI.Models.Telefone
+
+@{
+    ViewData["Title"] = "Cadastrar Telefone";
+}
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Criar" method="post" class="w-50">
+    <div class="mb-3">
+        <label asp-for="Numero" class="form-label">Número</label>
+        <input asp-for="Numero" class="form-control" placeholder="(XX) XXXXX-XXXX" required />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IdContato" class="form-label">Contato</label>
+        <select asp-for="IdContato" class="form-select" required>
+            <option value="">Selecione um contato</option>
+            @foreach (var contato in ViewBag.Contatos)
+            {
+                <option value="@contato.Id">@contato.Nome</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check-circle"></i> Salvar
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-x-circle"></i> Cancelar
+        </a>
+    </div>
+</form>

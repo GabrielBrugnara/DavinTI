@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DavinTI.Models.Contato>
+
+<table class="table table-striped table-bordered table-hover minha-tabela">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Telefones</th>
+            <th>Data Criação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contato in Model)
+        {
+            <tr>
+                <td>@contato.Id</td>
+                <td>@contato.Nome</td>
+                <td>@contato.Idade</td>
+                <td>
+                    @if (contato.Telefones.Any())
+                    {
+                        foreach (var tel in contato.Telefones)
+                        {
+                            <div>@tel.Numero</div>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted fst-italic">Nenhum</span>
+                    }
+                </td>
+                <td>@contato.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a href="@Url.Action("Editar", "Contato", new { id = contato.Id })"
+                       class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil-square"></i> Editar
+                    </a>
+                    <button type="button"
+                            class="btn btn-danger btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalDeletar"
+                            onclick="setContatoIdDeletar(@contato.Id)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

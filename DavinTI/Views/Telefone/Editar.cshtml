@@ -1,0 +1,59 @@
+﻿@model DavinTI.Models.Telefone
+
+@{
+    ViewData["Title"] = "Editar Telefone";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Editar" method="post" class="w-50">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Numero" class="form-label">Número</label>
+        <input asp-for="Numero" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IdContato" class="form-label">Contato</label>
+        <select asp-for="IdContato" class="form-select" required>
+            <option value="">Selecione um contato</option>
+            @foreach (var contato in ViewBag.Contatos)
+            {
+                <option value="@contato.Id" selected="@(contato.Id == Model.IdContato)">
+                    @contato.Nome
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+            <i class="bi bi-check-circle"></i> Salvar
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-x-circle"></i> Cancelar
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalConfirmar" tabindex="-1" aria-labelledby="modalConfirmarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-exclamation-triangle-fill text-warning"></i> Confirmar Alterações
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja salvar as alterações deste telefone?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
