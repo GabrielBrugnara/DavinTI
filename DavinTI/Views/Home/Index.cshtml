@@ -2,18 +2,62 @@
     ViewData["Title"] = "Início";
 }
 
-<div class="hero-section text-white text-center">
-    <h1 class="display-5 mb-4"><i class="bi bi-telephone-forward-fill"></i> Bem-vindo à Agenda Telefônica</h1>
-    <p class="lead">Gerencie seus contatos de forma simples, rápida e eficiente.</p>
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, rgba(5, 39, 68, 0.8), rgba(0, 88, 122, 0.8));
+        backdrop-filter: blur(8px);
+        padding: 60px 30px;
+        border-radius: 16px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1s ease-out;
+    }
 
-    <hr class="my-4" style="border-color: rgba(255,255,255,0.3);" />
+    @@keyframes fadeIn {
+        from
 
-    <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
-        <a href="@Url.Action("Index", "Contato")" class="btn btn-light btn-lg">
-            <i class="bi bi-person-plus"></i> Cadastrar Contato
-        </a>
-        <a href="@Url.Action("Index", "Telefone")" class="btn btn-outline-light btn-lg">
-            <i class="bi bi-search"></i> Pesquisar Telefones
-        </a>
+    {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    }
+
+    .hero-section h1 i {
+        margin-right: 10px;
+        color: #00d4ff;
+    }
+
+    .hero-section .btn {
+        min-width: 220px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .hero-section .btn:hover {
+            transform: scale(1.05);
+        }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="hero-section text-white text-center">
+        <h1 class="display-5 mb-4">
+            <i class="bi bi-telephone-forward-fill"></i> Bem-vindo à Agenda Telefônica
+        </h1>
+        <p class="lead">Gerencie seus contatos de forma simples, rápida e eficiente.</p>
+
+        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);" />
+
+        <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
+            <a href="@Url.Action("Index", "Contato")" class="btn btn-light btn-lg">
+                <i class="bi bi-person-plus"></i> Cadastrar Contato
+            </a>
+            <a href="@Url.Action("Index", "Telefone")" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-search"></i> Pesquisar Telefones
+            </a>
+        </div>
     </div>
 </div>
