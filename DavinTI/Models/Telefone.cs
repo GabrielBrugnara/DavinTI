@@ -15,8 +15,8 @@ namespace DavinTI.Models
         [Required(ErrorMessage = "Selecione um contato.")]
         public long IdContato { get; set; }
 
-       
+
         [ForeignKey("IdContato")]
-        public virtual Contato? Contato { get; set; } 
+        public virtual Contato? Contato { get; set; }
     }
 }
